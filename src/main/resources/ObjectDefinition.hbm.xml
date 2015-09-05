@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false">
+	<class name="org.apereo.openlrs.model.statement.XApiObjectDefinition"
+		table="object_definition">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+ <property name="type" type="string">
+            <column name="type" />
+        </property>
+        <property name="moreInfo" type="string">
+            <column name="more_info" />
+        </property>
+        <property name="interactionType" type="string">
+            <column name="interaction_type" />
+        </property>
+		<map name="Description" table="description" cascade="all">
+			<key column="reference_id"></key>
+			<index column="description_language" type="string"></index>
+			<element column="description_text" type="string"></element>
+		</map>
+		<map name="Name" table="object_definition_name" cascade="all">
+			<key column="reference_id"></key>
+			<index column="name_language" type="string"></index>
+			<element column="name_text" type="string"></element>
+		</map>
+	</class>
+</hibernate-mapping>

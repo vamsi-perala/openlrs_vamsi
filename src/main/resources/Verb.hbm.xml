@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+    <class name="org.apereo.openlrs.model.statement.XApiVerb" table="verb" >
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+        </id>
+        <map name="Display" table="verb_display" cascade="all">
+			<key column="reference_id"></key>
+			<index column="display_language" type="string"></index>
+			<element column="display_text" type="string"></element>
+		</map>
+    </class>
+</hibernate-mapping>

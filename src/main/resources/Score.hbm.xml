@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+    <class name="org.apereo.openlrs.model.statement.XApiScore" table="score" >
+     <id name="id" type="java.lang.Integer">
+            <column name="id" />
+          <generator class="increment"/>
+        </id>
+                
+        <property name="max" type="double">
+            <column name="max" />
+        </property>
+        <property name="min" type="double">
+            <column name="min" />
+        </property>
+       
+        <property name="raw" type="double">
+            <column name="raw" />
+        </property>
+        <property name="scaled" type="double">
+            <column name="scaled" />
+        </property>
+    </class>
+</hibernate-mapping>

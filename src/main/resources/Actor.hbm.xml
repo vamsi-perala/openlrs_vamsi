@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+    <class name="org.apereo.openlrs.model.statement.XApiActor" table="actor" >
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+          <generator class="increment"/>
+        </id>
+        <property name="mbox" type="string">
+            <column name="mbox" length="60" not-null="true" unique="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="60" not-null="true"  />
+        </property>
+        
+        <many-to-one name="Account" class="org.apereo.openlrs.model.statement.XApiAccount"
+          column="account_id"  cascade="all" />
+        
+    </class>
+</hibernate-mapping>

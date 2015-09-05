@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+    <class name="org.apereo.openlrs.model.statement.XApiContextActivities" table="context_activities" >
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+          <generator class="increment"/>
+        </id>
+     <list name="Parent" inverse="false" lazy="false" cascade="all">
+        <key>
+            <column name="fkey_parent"/>
+        </key>
+       <list-index column="idx_parent"></list-index>
+        <one-to-many class="org.apereo.openlrs.model.statement.XApiObject" />
+    </list>
+    <list name="Category" inverse="false" lazy="false" cascade="all">
+        <key>
+            <column name="fkey_category"/>
+        </key>
+       <list-index column="idx_category"></list-index>
+        <one-to-many class="org.apereo.openlrs.model.statement.XApiObject" />
+    </list>
+    
+    <list name="Grouping" inverse="false" lazy="false" cascade="all">
+        <key>
+            <column name="fkey_grouping"/>
+        </key>
+       <list-index column="idx_grouping"></list-index>
+        <one-to-many class="org.apereo.openlrs.model.statement.XApiObject" />
+    </list>
+    <list name="Other" inverse="false" lazy="false" cascade="all">
+        <key>
+            <column name="fkey_other"/>
+        </key>
+       <list-index column="idx_other"></list-index>
+        <one-to-many class="org.apereo.openlrs.model.statement.XApiObject" />
+    </list>
+    
+    
+    
+    
+    
+             
+      
+    </class>
+</hibernate-mapping>
